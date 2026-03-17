@@ -19,11 +19,11 @@ import {
 } from "lucide-react";
 
 // ✅ REAL IMPORTS (IMPORTANT)
-import Analytics from "../../pages/admin/Analytics";
-import Setting from "../../pages/admin/Settings";
-import User from "../../pages/admin/UserData";
-import Events from "../../pages/admin/Events";
-import Registrations from "../../pages/admin/Registrations";
+import Analytics from "./Analytics";
+import Setting from "./Settings";
+import User from "./UserData";
+import Events from "./Events";
+import Registrations from "./Registrations";
 import api from "../../api";
 
 const Admindashboard = () => {

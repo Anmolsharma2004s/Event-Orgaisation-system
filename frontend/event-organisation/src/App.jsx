@@ -7,14 +7,14 @@ import Contact from './pages/common/Contact'
 import Home from './pages/common/Home'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
-import Admindashboard from './pages/admin/adminDashboard'
+import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import UserDashboard from './pages/User/UserDashboard'
-import CheckAuth from './components/auth/checkAuth'
+import CheckAuth from './components/auth/checkAuth.jsx'
 import { useEffect, useState } from 'react'
 
-import RegisterEvents from './pages/User/RegisterEvents.jsx'
+import RegisterEvents from './pages/User/RegisterEvents'
 import AllEvents from './pages/User/AllEvents'
-import UserEventDetaile from './pages/common/userEventDetaile'
+import UserEventDetaile from './pages/common/UserEventDetaile'
 import MyBookings from './pages/User/MyBookings'
 import Dashboard from './pages/User/dashboard.jsx'
 function App() {
@@ -46,7 +46,7 @@ function App() {
           <Route path='/register' element={<Register/>} />
 
           {/* proteced routes */}
-          <Route path='/admin/admindashboard' element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><Admindashboard/></CheckAuth>} />
+          <Route path='/admin/admindashboard' element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><AdminDashboard/></CheckAuth>} />
          
           <Route path='/user/dashboard' element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><UserDashboard/></CheckAuth>}>
 
