@@ -7,20 +7,18 @@ const jwt=require('jsonwebtoken');
 
 //register user
 const register = async (req, res) => {
-  console.log("📥 Incoming register request body:", req.body);
+  console.log(" Incoming register request body:", req.body);
   try {
     const { username, password, email, role } = req.body;
-    console.log("✅ Step 1: Parsed body");
-
+   
     const salt = await bcrypt.genSalt(10);
-    console.log("✅ Step 2: Salt generated");
+   
 
     const hashedPassword = await bcrypt.hash(password, salt);
-    console.log("✅ Step 3: Password hashed");
+   
 
     const existingUser = await AuthModle.findOne({ email });
-    console.log("✅ Step 4: Checked existing user");
-
+   
     if (existingUser) {
       console.log("⚠️ Existing user found");
       return res.status(400).json({ message: "User already exists" });

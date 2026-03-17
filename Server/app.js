@@ -3,7 +3,7 @@
 require('dotenv').config();
 const express=require('express');
 const app=express();
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 5000;
 const authRoutes=require('./Routes/AuthRoutes');
 const eventRoutes=require('./Routes/EventRoutes');
 const bookingRoutes=require('./Routes/BookingRoutes');
