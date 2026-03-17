@@ -1,6 +1,6 @@
 import AnimatedBackground from '../../components/common/AnimatedBackground'
-import Login from '../../components/auth/login'
-import Register from '../../components/auth/register'
+import Login from '../../components/auth/Login'
+import Register from '../../components/auth/Register'
 import { useState } from 'react'
 
 const Home = () => {
