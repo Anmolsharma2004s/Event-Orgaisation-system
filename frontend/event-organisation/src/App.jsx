@@ -62,23 +62,22 @@ function App() {
 
         {/* User Dashboard with Nested Routes */}
         <Route
-          path='/user/dashboard'
-          element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-              <UserDashboard />
-            </CheckAuth>
-          }
-        >
-          {/* Default page */}
-          <Route index element={<Dashboard />} />
+  path='/user/dashboard'
+  element={
+    <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+      <UserDashboard />
+    </CheckAuth>
+  }
+>
+  {/* ✅ Default Dashboard */}
+  <Route index element={<Dashboard />} />
 
-          {/* Child Routes */}
-          <Route index element={<Dashboard />} />   {/* 👈 DEFAULT */}
-         <Route path='registerEvents' element={<RegisterEvents />} />
-         <Route path='allEvents' element={<AllEvents />} />
-        <Route path='allEvents/:id' element={<UserEventDetaile />} />
-        <Route path='my-bookings' element={<MyBookings />} />
-       </Route>
+  {/* ✅ Child Routes */}
+  <Route path='registerEvents' element={<RegisterEvents />} />
+  <Route path='allEvents' element={<AllEvents />} />
+  <Route path='allEvents/:id' element={<UserEventDetaile />} />
+  <Route path='my-bookings' element={<MyBookings />} />
+</Route>
       </Routes>
     </>
   );
