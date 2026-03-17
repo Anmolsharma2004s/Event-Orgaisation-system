@@ -14,7 +14,7 @@ import RegisterEvents from './pages/User/RegisterEvents'
 import AllEvents from './pages/User/AllEvents'
 import UserEventDetaile from './pages/common/UserEventDetaile'
 import MyBookings from './pages/User/MyBookings'
-import Dashboard from './pages/User/dashboard.jsx'
+import Dashboard from './pages/User/Dashboard'
 import Admindashboard from './pages/admin/AdminDashboard'
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
@@ -54,7 +54,7 @@ function App() {
           <Route path="allEvents" element={<AllEvents />} />
          <Route path="allEvents/:id" element={<UserEventDetaile/>} />
           <Route path="my-bookings" element={<MyBookings/>}/>  
-          <Route path='dashboard' element={<Dashboard/>}/>
+          <Route path='/user/dashboard' element={<Dashboard/>}/>
      </Route>
         </Routes>
       </h1>
