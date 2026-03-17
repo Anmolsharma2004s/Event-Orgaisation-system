@@ -26,7 +26,7 @@ import Events from "./Events";
 import Registrations from "./Registrations";
 import api from "../../api";
 
-const Admindashboard = () => {
+const AdminDashboard = () => {
   const [currentPage, setCurrentPage] = useState("dashboard");
   const [dashboardData, setDashboardData] = useState(null);
   const [notifications, setNotifications] = useState([]);
@@ -315,4 +315,4 @@ const Admindashboard = () => {
   );
 };
 
-export default Admindashboard;
+export default AdminDashboard;
