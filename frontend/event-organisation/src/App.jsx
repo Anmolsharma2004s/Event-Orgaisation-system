@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/common/Navbar'
 import About from './pages/common/About'
@@ -16,51 +15,73 @@ import UserEventDetaile from './pages/common/UserEventDetaile'
 import MyBookings from './pages/User/MyBookings'
 import Dashboard from './pages/User/Dashboard'
 import Admindashboard from './pages/admin/AdminDashboard'
+
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
-  const [user,setUser]=useState(null);
-  const [isLoading,setIsLoading]=useState(true);
-
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const token=localStorage.getItem('token');
-    const userData=localStorage.getItem('user');
-    if(token && userData){
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+
+    if (token && userData) {
       setisAuthenticated(true);
       setUser(JSON.parse(userData));
     }
+
     setIsLoading(false);
-  }, [])
-  
+  }, []);
+
+  if (isLoading) {
+    return <div className="text-center mt-10">Loading...</div>;
+  }
+
   return (
     <>
-      <h1>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About/>} />
-          <Route path='/events' element={<Event/>} />
-          <Route path='/contact' element={<Contact/>} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register/>} />
+      <Navbar />
 
-          {/* proteced routes */}
-          <Route path='/admin/admindashboard' element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><Admindashboard/></CheckAuth>} />
-         
-          <Route path='/user/dashboard' element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><UserDashboard/></CheckAuth>}>
+      <Routes>
+        {/* Public Routes */}
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/events' element={<Event />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
 
-          
-          <Route path='registerEvents' element={<RegisterEvents/>}/>
-          <Route path="allEvents" element={<AllEvents />} />
-         <Route path="allEvents/:id" element={<UserEventDetaile/>} />
-          <Route path="my-bookings" element={<MyBookings/>}/>  
-          <Route path='/user/dashboard' element={<Dashboard/>}/>
-     </Route>
-        </Routes>
-      </h1>
-       
+        {/* Admin Route */}
+        <Route
+          path='/admin/admindashboard'
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <Admindashboard />
+            </CheckAuth>
+          }
+        />
+
+        {/* User Dashboard with Nested Routes */}
+        <Route
+          path='/user/dashboard'
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+              <UserDashboard />
+            </CheckAuth>
+          }
+        >
+          {/* Default page */}
+          <Route index element={<Dashboard />} />
+
+          {/* Child Routes */}
+          <Route index element={<Dashboard />} />   {/* 👈 DEFAULT */}
+         <Route path='registerEvents' element={<RegisterEvents />} />
+         <Route path='allEvents' element={<AllEvents />} />
+        <Route path='allEvents/:id' element={<UserEventDetaile />} />
+        <Route path='my-bookings' element={<MyBookings />} />
+       </Route>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
