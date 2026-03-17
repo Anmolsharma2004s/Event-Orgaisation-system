@@ -62,7 +62,7 @@ function App() {
 
         {/* User Dashboard with Nested Routes */}
         <Route
-  path='/user/dashboard'
+  path='/user/dashboard/dashboard'
   element={
     <CheckAuth isAuthenticated={isAuthenticated} user={user}>
       <UserDashboard />
@@ -70,7 +70,7 @@ function App() {
   }
 >
   {/* ✅ Default Dashboard */}
-  <Route index element={<Dashboard />} />
+  <Route index element={<Dashboard  />} />
 
   {/* ✅ Child Routes */}
   <Route path='registerEvents' element={<RegisterEvents />} />
