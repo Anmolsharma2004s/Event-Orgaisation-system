@@ -145,7 +145,7 @@ const RegisterEvents = ({ onClose }) => {
             value={formData.title}
             onChange={handleChange}
             placeholder="Enter event title"
-            className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+            className={`w-full px-4 py-3 border-2 text-black rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
               errors.title ? "border-red-500" : "border-gray-300"
             }`}
           />
