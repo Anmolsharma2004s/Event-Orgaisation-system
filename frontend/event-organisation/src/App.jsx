@@ -13,7 +13,7 @@ import RegisterEvents from './pages/User/RegisterEvents'
 import AllEvents from './pages/User/AllEvents'
 import UserEventDetaile from './pages/common/UserEventDetaile'
 import MyBookings from './pages/User/MyBookings'
-import Dashboard from './pages/User/Dashboard'
+import Dashboard from './pages/User/dashboard.jsx'
 import Admindashboard from './pages/admin/AdminDashboard'
 
 function App() {
